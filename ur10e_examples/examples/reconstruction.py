@@ -35,6 +35,9 @@ pose8 = Pose(position=Point(1.0, -0.25, h),
                 orientation=Quaternion(0.0, 1.0, 0.0, 0.0))
 
 
+#71 and 69 , 12 ,/ 10
+#91 and 95,  7 ,/10
+
 # define endeffector
 # tcp pose should match static tf declared in launch file
 ee_name = 'D405'
@@ -59,7 +62,7 @@ start_srv_req.rgbd_params.convert_rgb_to_intensity = False
 
 stop_srv_req = StopReconstructionRequest()
 # stop_srv_req.archive_directory = '/dev_ws/src.reconstruction/'
-stop_srv_req.mesh_filepath = '/home/libish/setup1.2.ply'
+stop_srv_req.mesh_filepath = '/home/libish/setup1.3.ply'
 # stop_srv_req.normal_filters = [NormalFilterParams(
 #                     normal_direction=Vector3(x=0.0, y=0.0, z=1.0), angle=90)]
 # stop_srv_req.min_num_faces = 1000
@@ -120,7 +123,7 @@ def robot_program():
     # scan_acc = 0.01
 
     b = 0.05
-    a = 0.01
+    a = 0.0009
 
     mgi.sequencer.plan(Lin(goal=pose2, vel_scale=b, acc_scale=a))
     mgi.sequencer.execute()
